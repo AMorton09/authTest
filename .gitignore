@@ -1,0 +1,8 @@
+# haters
+#ignore packages installed by npm
+node_modules
+notgit
+*~
+.DS_Store
+
+
