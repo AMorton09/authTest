@@ -1,7 +1,14 @@
 var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
-module.exports = mongoose.model('Athelete',{
+var atheleteSchema = new Schema({
     firstname: String,
     lastname: String,
     town: String
 });
+
+
+
+var Athelete = mongoose.model('Athelete', atheleteSchema);
+
+module.exports = Athelete;

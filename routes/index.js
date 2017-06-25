@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var Athelete = require('../models/athelete');
 
 var isAuthenticated = function (req, res, next) {
     // if user is authenticated in the session, call the next() to call the next request handler
@@ -47,6 +48,22 @@ module.exports = function(passport){
     router.get('/signout', function(req, res) {
         req.logout();
         res.redirect('/');
+    });
+    router.post('/addAthelete', isAuthenticated,function(req, res){
+        console.log("i ran");
+       var newAthelete = Athelete({
+           firstname: req.body.firstname,
+           lastname: req.body.lastname,
+           town: req.body.town
+       });
+
+        newAthelete.save(function(err) {
+            if (err) throw err;
+
+            console.log('User saved successfully!');
+        });
+        res.render('home');
+
     });
 
     return router;
