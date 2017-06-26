@@ -1,6 +1,24 @@
 var express = require('express');
 var router = express.Router();
 var Athelete = require('../models/athelete');
+var path = require('path');
+var fs = require('fs');
+var multer = require('multer');
+
+
+var Storage = multer.diskStorage({
+    destination: function (req, file, callback) {
+        callback(null, "./uploads/");
+    },
+    filename: function (req, file, callback) {
+        callback(null, file.fieldname + "_" + Date.now() + "_" + file.originalname);
+    }
+});
+
+
+
+var upload = multer({ storage: Storage }).single('photo');
+
 
 var isAuthenticated = function (req, res, next) {
     // if user is authenticated in the session, call the next() to call the next request handler
@@ -49,9 +67,18 @@ module.exports = function(passport){
         req.logout();
         res.redirect('/');
     });
+
     router.post('/addAthelete', isAuthenticated,function(req, res){
-        console.log("i ran");
-       var newAthelete = Athelete({
+
+        upload(req, res, function (err) {
+            if (err) {
+                return console.log("Something went wrong!");
+            }
+            console.log(req.files);
+            return console.log("File uploaded sucessfully!.");
+        });
+
+        var newAthelete = Athelete({
            firstname: req.body.firstname,
            lastname: req.body.lastname,
            town: req.body.town

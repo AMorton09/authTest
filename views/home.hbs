@@ -7,10 +7,10 @@
         </div>
     </div>
 </div>
-<form action="/addAthelete" method="POST" class="form-signin">
+<form action="/addAthelete" enctype="multipart/form-data" method="POST" class="form-signin">
     <input type="text" name="firstname" placeholder="First Name" required="required" autofocus="autofocus" class="form-control"/>
     <input type="text" name="lastname" placeholder="Last Name" required="required" class="form-control nomargin"/>
     <input type="text" name="town" placeholder="Town" required="required" class="form-control nomargin"/>
-
+    <input type="file" id="photo" name="photo">
     <button type="submit" class="btn btn-lg btn-primary btn-block">Add Athelete</button><span class="clearfix"></span>
 </form>
