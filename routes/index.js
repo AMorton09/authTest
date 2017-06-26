@@ -74,21 +74,23 @@ module.exports = function(passport){
             if (err) {
                 return console.log("Something went wrong!");
             }
-            console.log(req.files);
+            var newAthelete = Athelete({
+                firstname: req.body.firstname,
+                lastname: req.body.lastname,
+                town: req.body.town,
+                photo: req.file.path
+            });
+            newAthelete.save(function(err) {
+                if (err) throw err;
+
+                console.log('User saved successfully!');
+            });
             return console.log("File uploaded sucessfully!.");
         });
 
-        var newAthelete = Athelete({
-           firstname: req.body.firstname,
-           lastname: req.body.lastname,
-           town: req.body.town
-       });
 
-        newAthelete.save(function(err) {
-            if (err) throw err;
 
-            console.log('User saved successfully!');
-        });
+
         res.render('home');
 
     });
