@@ -70,6 +70,7 @@ module.exports = function(passport){
 
     router.post('/addAthelete', isAuthenticated,function(req, res){
 
+
         upload(req, res, function (err) {
             if (err) {
                 return console.log("Something went wrong!");
@@ -91,7 +92,10 @@ module.exports = function(passport){
 
 
 
-        res.render('home');
+        res.render('homeAddSuccess',{ath: { firstname: ath.firstname,
+            lastname: ath.lastname,
+            town: ath.town,
+            photo: ath.path}});
 
     });
 

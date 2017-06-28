@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-md-4 col-md-offset-4">
+            <h1 class="text-center login-title">Welcome. Check your details below:
+                <div class="signup-wall"><a href="/signout" class="text-center new-account">Sign Out</a></div>
+            </h1>
+        </div>
+    </div>
+</div>
+<form action="/addAthelete" enctype="multipart/form-data" method="POST" class="form-signin">
+    <input type="text" name="firstname" placeholder="First Name" required="required" autofocus="autofocus" class="form-control"/>
+    <input type="text" name="lastname" placeholder="Last Name" required="required" class="form-control nomargin"/>
+    <input type="text" name="town" placeholder="Town" required="required" class="form-control nomargin"/>
+    <input type="file" id="photo" name="photo">
+    <button type="submit" class="btn btn-lg btn-primary btn-block">Add Athelete</button><span class="clearfix"></span>
+</form>
+{{ath}}
+<h1><img src="" alt="Successmiley face" height="42" width="42"></h1>
