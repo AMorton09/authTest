@@ -50,6 +50,11 @@ module.exports = function(passport){
         res.render('register',{message: req.flash('message')});
     });
 
+    router.get('/test', function(req, res){
+        res.render('test');
+    });
+
+
     /* Handle Registration POST */
     router.post('/signup', passport.authenticate('signup', {
         successRedirect: '/home',
