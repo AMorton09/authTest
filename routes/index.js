@@ -81,7 +81,7 @@ module.exports = function(passport){
 
         upload(req, res, function (err) {
             if (err) {
-                return console.log("Something went wrong!");
+                return console.log("Something went wrong!\n"+err);
             }
             var newAthelete = Athelete({
                 firstname: req.body.firstname,
@@ -100,10 +100,7 @@ module.exports = function(passport){
 
 
 
-        res.render('homeAddSuccess',{ath: { firstname: ath.firstname,
-            lastname: ath.lastname,
-            town: ath.town,
-            photo: ath.path}});
+        res.render('homeAddSuccess');
 
     });
 

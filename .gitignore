@@ -2,7 +2,8 @@
 #ignore packages installed by npm
 node_modules
 notgit
-uploads
+uploads/*
+!uploads/s.gitkeep
 
 *~
 .DS_Store
