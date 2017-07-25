@@ -73,6 +73,9 @@ module.exports = function(passport){
         res.redirect('/');
     });
 
+
+
+
     router.post('/addAthelete', isAuthenticated,function(req, res){
 
 
