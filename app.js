@@ -36,7 +36,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(expressSession({secret: 'mySecretKey'}));
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(bodyParser({uploadDir:'./temp'}));
+app.use(bodyParser({uploadDir:'./public/uploads'}));
 var initPassport = require('./passport/init');
 initPassport(passport);
 var flash = require('connect-flash');

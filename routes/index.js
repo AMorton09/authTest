@@ -8,7 +8,7 @@ var multer = require('multer');
 
 var Storage = multer.diskStorage({
     destination: function (req, file, callback) {
-        callback(null, "./uploads/");
+        callback(null, "./public/uploads/");
     },
     filename: function (req, file, callback) {
         callback(null, file.fieldname + "_" + Date.now() + "_" + file.originalname);
@@ -100,7 +100,7 @@ module.exports = function(passport){
 
 
 
-        res.render('homeAddSuccess');
+        res.render('homeAddSuccess',{ ath: Athelete });
 
     });
 
